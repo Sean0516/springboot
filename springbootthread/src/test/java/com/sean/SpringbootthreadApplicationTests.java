@@ -4,6 +4,8 @@ import com.sean.config.AsyncTask;
 import com.sean.config.TaskExecutorConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
+import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -27,7 +29,7 @@ public class SpringbootthreadApplicationTests {
 		asyncTask.sayHello("hello");
 		asyncTask.getName("sean");
 		try {
-			Thread.currentThread().join();
+			Thread.sleep(1000*2);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
