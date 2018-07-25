@@ -1,0 +1,173 @@
+﻿    @RequestMapping(value = "/info/{referenceId}/batchDownloadMedia/{key}", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> batchDownloadMedia(@PathVariable String referenceId, @PathVariable String key, HttpSession session, ServletRequest request) throws Exception {
+        String mediaPath = session.getServletContext().getRealPath("/media/") + "/";
+        File file = mediaImpl.audioFile(referenceId, mediaPath, key);
+        byte[] byt= Files.toByteArray(file);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        return new ResponseEntity(byt, headers, HttpStatus.CREATED);
+    }
+	
+	    File batchDownloadMediaZip(String[] callReferences , String destinationPath) throws IOException, ZipException;
+
+	
+	
+	 @Override
+    public File batchDownloadMediaZip(String[] callReferences, String destinationPath) throws IOException, ZipException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String time = sdf.format(new Date());
+        StringBuffer style = new StringBuffer();
+        StringBuffer sb = new StringBuffer();
+        ZipFile zipFile = null;
+        String key;
+        File file;
+        String mediaName = null;
+        String mediaPath = destinationPath + "media/";
+        String downloadPath = destinationPath + "download/";
+        List<File> audioFiles = new ArrayList<>();
+        byte[] str = Files.toByteArray(ResourceUtils.getFile("classpath:templates/zipMedia.html"));
+        String str1 = new String(str, 0, str.length);
+        sb.append(str1);
+        String mb = sb.toString();
+        int cr = mb.indexOf("</body>");
+        String before = mb.substring(0, cr);
+        String after = mb.substring(cr);
+        if (callReferences != null && callReferences.length > 0) {
+            if (!new File(mediaPath).exists()) {
+                new File(mediaPath).mkdir();
+            }
+            if (!new File(downloadPath).exists()) {
+                new File(downloadPath).mkdir();
+            }
+
+            for (String callReference : callReferences) {
+                Call call = callMapper.selectByPrimaryKey(callReference);
+                if (call == null) {
+                    throw new ServiceException("NO Data found");
+                }
+                Integer voiceid = call.getVoiceid();
+                SystemInfoExample systemInfoExample = new SystemInfoExample();
+                systemInfoExample.createCriteria().andVoiceidEqualTo(voiceid);
+                //获取该条录音属于哪一台录音服务器
+                List<SystemInfo> systemInfoList = systemInfoMapper.selectByExample(systemInfoExample);
+                if (systemInfoList == null || systemInfoList.size() < 1) {
+                    throw new ServiceException("NO System found");
+                }
+                if (null != call.getEncrypted() && "1".equals(call.getEncrypted())) {
+                    key = "/bRx66n59sGAhZmoqjGbdw==";
+                } else {
+                    key = "0";
+                }
+                SystemInfo systemInfo = systemInfoList.get(0);
+                String ip = systemInfo.getIp();
+                Integer port = systemInfo.getPort();
+                String audioUri = String.format("http://%s:%d/recServer/api/media/info/%s/batchDownloadMedia/%s", ip, port, callReference, key);
+                ResponseEntity<byte[]> responseEntity=null;
+                try {
+                    responseEntity = restTemplate.postForEntity(audioUri, null, byte[].class);
+                } catch (RestClientException e) {
+                    LOGGER.error(e.getMessage());
+                }
+                style.append("<tr><td>" + call.getCallreference() + "</td><td>" + call.getVoiceid() + "</td><td>" + DateUtil.booleanIsNull(call.getAgentid()) + "</td><td>" + call.getDirection() + "</td><td>" + call.getExtension() + "</td><td>"
+                        + DateUtil.date2Str(call.getCreatetime(), null) + "</td><td>"
+                        + DateUtil.booleanIsNull(call.getCallerid()) +
+                        "</td><td>" + DateUtil.booleanIsNull(call.getCalledid()) + "</td><td>" + toHms(call.getDuration())+"</td><td>" + DateUtil.date2Str(call.getCleartime(), null) + "</td>");
+                if (responseEntity!=null&&responseEntity.getStatusCode().is2xxSuccessful()) {
+                    file = new File(mediaPath + callReference + ".mp3");
+                    if (!file.exists()) {
+                        Files.write(responseEntity.getBody(), file);
+                    }
+                    audioFiles.add(file);
+                    mediaName = callReference + ".mp3";
+                    style.append("<td><input type=\"hidden\" id=\"" + mediaName + "\" value=\"" + mediaName + "\" \">" +
+                            "<button onclick=\"document.getElementById('k1').src=\n" +
+                            "document.getElementById\n" +
+                            "('" + mediaName + "').value;document.getElementById('media').load\n" +
+                            "();\">play</button>" + "</td></tr>");
+                }else {
+                    style.append("<td>" +
+                            "<button disabled=\"disabled\">play</button>" + "</td></tr>");
+                }
+            }
+            String all = before + style.toString() + after;
+            File htmlFile = new File(downloadPath + "record.html");
+            Files.write(all.getBytes(), htmlFile);
+            ZipParameters parameters = new ZipParameters();
+            parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);           // 压缩方式
+            parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_NORMAL);    // 压缩级别
+            zipFile = new ZipFile(downloadPath + time + ".zip");
+            if (zipFile.getFile().exists()) {
+                zipFile.getFile().delete();
+            }
+            zipFile.addFile(htmlFile, parameters);
+            htmlFile.delete();
+            for (File audioFile : audioFiles) {
+                zipFile.addFile(audioFile, parameters);
+            }
+        }
+        return zipFile.getFile();
+    }
+	
+	void downloadZip(File file, HttpServletResponse response) throws IOException;
+	
+	    @Override
+    public void downloadZip(File file, HttpServletResponse response) throws IOException {
+        response.reset();
+        // 设置response的Header
+        response.addHeader("Content-Disposition", "attachment;filename=" + file.getName());
+        response.addHeader("Content-Length", "" + file.length());
+        OutputStream toClient = new BufferedOutputStream(response.getOutputStream());
+        response.setContentType("application/octet-stream");
+        toClient.write(Files.toByteArray(file));
+        toClient.flush();
+        toClient.close();
+        file.delete();
+    }
+	
+	 public String toHms(Long l) {
+        long l01 = l;
+        int i = (int) l01;
+        int minites = i / 60;
+        int yu = i % 60;
+        int houes = minites / 60;
+        int fenyu = minites % 60;
+        String strf = "" + fenyu;
+        String strh = "" + houes;
+        String stryu = "" + yu;
+        if (fenyu < 10) {
+            strf = "0" + fenyu;
+        }
+        if (houes < 10) {
+            strh = "0" + houes;
+        }
+        if (yu < 10) {
+            stryu = "0" + yu;
+        }
+        return strh + ":" + strf + ":" + stryu;
+    }
+	
+	    @RequestMapping(value = "info/batchDownloadMedia" ,method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity batchDownloadMedia(String[] callReferences,HttpSession session , HttpServletResponse response) throws IOException, ZipException {
+        String downloadPath = session.getServletContext().getRealPath("/") ;
+        File file=callImpl.batchDownloadMediaZip(callReferences,downloadPath);
+        callImpl.downloadZip(file,response);
+        Result result=new Result(null,true);
+        return new ResponseEntity(result,HttpStatus.CREATED);
+    }
+
+
+
+@Configuration
+public class DataBaseIdProviderConfig {
+    @Bean
+    public DatabaseIdProvider getDatabaseIdProvider(){
+        DatabaseIdProvider databaseIdProvider = new VendorDatabaseIdProvider();
+        Properties properties = new Properties();
+        properties.setProperty("Oracle","oracle");
+        properties.setProperty("MySQL","mysql1");
+        properties.setProperty("SQL Server","sqlserver");
+        databaseIdProvider.setProperties(properties);
+        return databaseIdProvider;
+    }
+}

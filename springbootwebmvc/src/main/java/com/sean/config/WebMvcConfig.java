@@ -34,7 +34,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CustomInterceptor()).addPathPatterns("/test1/**");
+        registry.addInterceptor(new CustomInterceptor()).addPathPatterns("/test/**");
         super.addInterceptors(registry);
     }
 
@@ -46,6 +46,17 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         super.addViewControllers(registry);
     }
+
+    /**
+     * 路径匹配设置
+     * @param configurer
+     */
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseSuffixPatternMatch(false);
+        super.configurePathMatch(configurer);
+    }
+
     public class CustomInterceptor implements HandlerInterceptor{
         /**
          * 在业务请求之前调用
@@ -94,4 +105,5 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
             System.out.println("完全处理完请求后被调用");
         }
     }
+
 }
