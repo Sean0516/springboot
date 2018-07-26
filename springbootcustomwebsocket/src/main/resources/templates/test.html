@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+    <script type="text/javascript">
+        var  webSocket;
+        webSocket=new WebSocket("ws://localhost:8080/test1");
+        webSocket.onopen=function (p1) {
+            console.log("打开socket")
+
+        };
+        webSocket.onmessage=function (p1) {
+            console.log("server msg" +p1.data)
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
