@@ -1,5 +1,7 @@
 package com.sean.controller;
 
+import com.sean.config.MultipartConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,13 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "file")
 public class FileController {
+    @Autowired
+    private MultipartConfig multipartConfig;
+    private  String location ;
     @RequestMapping(value = "toFileUpload")
+
     public String toFileUpload() {
+        multipartConfig.multipartConfigElement().getLocation();
         return "fileUpload";
     }
 
@@ -38,7 +45,7 @@ public class FileController {
     public String upload(@RequestParam("file") MultipartFile file , HttpSession session) {
         if (!file.isEmpty()) {
             try {
-                FileCopyUtils.copy(file.getBytes(), new File("D:\\" + file.getOriginalFilename()));
+                FileCopyUtils.copy(file.getBytes(), new File(location + file.getOriginalFilename()));
             } catch (IOException e) {
                 e.printStackTrace();
                 return "文件上传失败" + e.getMessage();
@@ -56,7 +63,7 @@ public class FileController {
         for (MultipartFile multipartFile : file) {
             if (!multipartFile.isEmpty()){
                 try {
-                    FileCopyUtils.copy(multipartFile.getBytes(), new File("D:\\temp\\" + multipartFile.getOriginalFilename()));
+                    FileCopyUtils.copy(multipartFile.getBytes(), new File(location + multipartFile.getOriginalFilename()));
                     stringBuilder.append(multipartFile.getOriginalFilename()+"上传成功"+"\n");
                 } catch (IOException e) {
                     e.printStackTrace();
