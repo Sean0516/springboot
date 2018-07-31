@@ -19,6 +19,8 @@
 		<module>springbootthread</module>
 		<module>springbootwebmvc</module>
 		<module>springbootwebsocket</module>
+		<module>spingbootmybatis</module>
+		<module>springbootehcacheredis</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

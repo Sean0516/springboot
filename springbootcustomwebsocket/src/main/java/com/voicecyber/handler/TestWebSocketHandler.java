@@ -27,6 +27,7 @@ public class TestWebSocketHandler extends TextWebSocketHandler {
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        //这里的map 的 key  在实际开发中 可以使用userName
         concurrentMap.put(session.getId(),session);
         LOGGER.info("client connect web socket success current num is "+concurrentMap.size());
         session.sendMessage(new TextMessage("hello this is server"));

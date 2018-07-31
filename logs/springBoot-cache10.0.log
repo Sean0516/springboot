@@ -1,0 +1,403 @@
+2018-07-30 14:17:39,177 [main] INFO SpingbootmybatisApplication - Starting SpingbootmybatisApplication on SEAN with PID 13912 (D:\Study\springboot\spingbootmybatis\target\classes started by Sean in D:\Study\springboot)
+2018-07-30 14:17:39,180 [main] INFO SpingbootmybatisApplication - No active profile set, falling back to default profiles: default
+2018-07-30 14:17:39,273 [main] INFO AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:17:39 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:17:39,845 [background-preinit] INFO Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-30 14:17:40,364 [main] INFO AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-30 14:17:40,977 [main] WARN CacheConfiguration - Cache: userCache has a maxElementsInMemory of 0. This might lead to performance degradation or OutOfMemoryError at Terracotta client.From Ehcache 2.0 onwards this has been changed to mean a store with no capacity limit. Set it to 1 if you want no elements cached in memory
+2018-07-30 14:17:41,421 [main] INFO TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-07-30 14:17:41,437 [main] INFO StandardService - Starting service [Tomcat]
+2018-07-30 14:17:41,438 [main] INFO StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-30 14:17:41,613 [localhost-startStop-1] INFO [/] - Initializing Spring embedded WebApplicationContext
+2018-07-30 14:17:41,613 [localhost-startStop-1] INFO ContextLoader - Root WebApplicationContext: initialization completed in 2340 ms
+2018-07-30 14:17:41,753 [localhost-startStop-1] INFO ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-30 14:17:41,758 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-30 14:17:41,758 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-30 14:17:41,758 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-30 14:17:41,758 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-30 14:17:42,462 [main] INFO RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:17:39 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:17:42,516 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getAllUser]}" onto public java.util.List<com.voicecyber.model.User> com.voicecyber.controller.UserController.getAllUser()
+2018-07-30 14:17:42,518 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getUser]}" onto public com.voicecyber.model.User com.voicecyber.controller.UserController.getUser(int)
+2018-07-30 14:17:42,521 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-30 14:17:42,521 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-30 14:17:42,571 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:17:42,571 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:17:42,615 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:17:42,912 [main] INFO AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-30 14:17:42,925 [main] INFO Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:17:42,939 [main] INFO Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:17:42,951 [main] INFO NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-30 14:17:42,979 [main] INFO TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-07-30 14:17:42,983 [main] INFO SpingbootmybatisApplication - Started SpingbootmybatisApplication in 4.269 seconds (JVM running for 4.797)
+2018-07-30 14:18:08,968 [http-nio-8080-exec-1] INFO [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-30 14:18:08,968 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-30 14:18:08,995 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2018-07-30 14:18:09,104 [http-nio-8080-exec-1] ERROR [dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.] with root cause
+java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleNullValue(AbstractNamedValueMethodArgumentResolver.java:238)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:111)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-30 14:18:37,022 [http-nio-8080-exec-2] ERROR [dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.] with root cause
+java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleNullValue(AbstractNamedValueMethodArgumentResolver.java:238)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:111)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-30 14:19:09,374 [http-nio-8080-exec-8] ERROR [dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.] with root cause
+java.lang.IllegalStateException: Optional int parameter 'id' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type.
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleNullValue(AbstractNamedValueMethodArgumentResolver.java:238)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:111)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-30 14:30:07,284 [main] INFO SpingbootmybatisApplication - Starting SpingbootmybatisApplication on SEAN with PID 19192 (D:\Study\springboot\spingbootmybatis\target\classes started by Sean in D:\Study\springboot)
+2018-07-30 14:30:07,287 [main] INFO SpingbootmybatisApplication - No active profile set, falling back to default profiles: default
+2018-07-30 14:30:07,358 [main] INFO AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:30:07 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:30:07,554 [background-preinit] INFO Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-30 14:30:08,233 [main] INFO AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-30 14:30:08,782 [main] WARN CacheConfiguration - Cache: userCache has a maxElementsInMemory of 0. This might lead to performance degradation or OutOfMemoryError at Terracotta client.From Ehcache 2.0 onwards this has been changed to mean a store with no capacity limit. Set it to 1 if you want no elements cached in memory
+2018-07-30 14:30:09,079 [main] INFO TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-07-30 14:30:09,089 [main] INFO StandardService - Starting service [Tomcat]
+2018-07-30 14:30:09,090 [main] INFO StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-30 14:30:09,180 [localhost-startStop-1] INFO [/] - Initializing Spring embedded WebApplicationContext
+2018-07-30 14:30:09,181 [localhost-startStop-1] INFO ContextLoader - Root WebApplicationContext: initialization completed in 1823 ms
+2018-07-30 14:30:09,327 [localhost-startStop-1] INFO ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-30 14:30:09,331 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-30 14:30:09,332 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-30 14:30:09,332 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-30 14:30:09,332 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-30 14:30:10,112 [main] INFO RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:30:07 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:30:10,162 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getAllUser]}" onto public java.util.List<com.voicecyber.model.User> com.voicecyber.controller.UserController.getAllUser()
+2018-07-30 14:30:10,163 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getUser]}" onto public com.voicecyber.model.User com.voicecyber.controller.UserController.getUser(int)
+2018-07-30 14:30:10,163 [main] INFO RequestMappingHandlerMapping - Mapped "{[/insertUser]}" onto public void com.voicecyber.controller.UserController.insertUser()
+2018-07-30 14:30:10,165 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-30 14:30:10,165 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-30 14:30:10,194 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:30:10,194 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:30:10,228 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:30:10,510 [main] INFO AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-30 14:30:10,522 [main] INFO Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:30:10,529 [main] INFO Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:30:10,545 [main] INFO NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-30 14:30:10,604 [main] INFO TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-07-30 14:30:10,610 [main] INFO SpingbootmybatisApplication - Started SpingbootmybatisApplication in 3.564 seconds (JVM running for 4.114)
+2018-07-30 14:30:32,175 [http-nio-8080-exec-1] INFO [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-30 14:30:32,175 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-30 14:30:32,211 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms
+2018-07-30 14:30:33,051 [http-nio-8080-exec-1] ERROR [dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public void com.voicecyber.service.UserImpl.insertUser(com.voicecyber.model.User)] caches=[userCache] | key='#user.id' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless=''] with root cause
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public void com.voicecyber.service.UserImpl.insertUser(com.voicecyber.model.User)] caches=[userCache] | key='#user.id' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless=''
+	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:560)
+	at org.springframework.cache.interceptor.CacheAspectSupport.collectPutRequests(CacheAspectSupport.java:528)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:412)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:326)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy73.insertUser(Unknown Source)
+	at com.voicecyber.controller.UserController.insertUser(UserController.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2018-07-30 14:31:05,793 [main] INFO SpingbootmybatisApplication - Starting SpingbootmybatisApplication on SEAN with PID 14404 (D:\Study\springboot\spingbootmybatis\target\classes started by Sean in D:\Study\springboot)
+2018-07-30 14:31:05,798 [main] INFO SpingbootmybatisApplication - No active profile set, falling back to default profiles: default
+2018-07-30 14:31:05,875 [main] INFO AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:31:05 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:31:06,121 [background-preinit] INFO Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-30 14:31:06,750 [main] INFO AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-30 14:31:07,249 [main] WARN CacheConfiguration - Cache: userCache has a maxElementsInMemory of 0. This might lead to performance degradation or OutOfMemoryError at Terracotta client.From Ehcache 2.0 onwards this has been changed to mean a store with no capacity limit. Set it to 1 if you want no elements cached in memory
+2018-07-30 14:31:07,553 [main] INFO TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-07-30 14:31:07,563 [main] INFO StandardService - Starting service [Tomcat]
+2018-07-30 14:31:07,564 [main] INFO StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-30 14:31:07,651 [localhost-startStop-1] INFO [/] - Initializing Spring embedded WebApplicationContext
+2018-07-30 14:31:07,651 [localhost-startStop-1] INFO ContextLoader - Root WebApplicationContext: initialization completed in 1776 ms
+2018-07-30 14:31:07,811 [localhost-startStop-1] INFO ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-30 14:31:07,816 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-30 14:31:07,817 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-30 14:31:07,817 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-30 14:31:07,817 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-30 14:31:08,458 [main] INFO RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:31:05 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:31:08,508 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getUser]}" onto public com.voicecyber.model.User com.voicecyber.controller.UserController.getUser(int)
+2018-07-30 14:31:08,509 [main] INFO RequestMappingHandlerMapping - Mapped "{[/insertUser]}" onto public void com.voicecyber.controller.UserController.insertUser()
+2018-07-30 14:31:08,510 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getAllUser]}" onto public java.util.List<com.voicecyber.model.User> com.voicecyber.controller.UserController.getAllUser()
+2018-07-30 14:31:08,511 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-30 14:31:08,512 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-30 14:31:08,543 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:31:08,543 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:31:08,577 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:31:08,874 [main] INFO AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-30 14:31:08,888 [main] INFO Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:31:08,897 [main] INFO Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:31:08,914 [main] INFO NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-30 14:31:08,929 [main] INFO TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-07-30 14:31:08,932 [main] INFO SpingbootmybatisApplication - Started SpingbootmybatisApplication in 3.415 seconds (JVM running for 3.948)
+2018-07-30 14:31:17,830 [http-nio-8080-exec-1] INFO [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-30 14:31:17,831 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-30 14:31:17,853 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+2018-07-30 14:32:50,877 [main] INFO SpingbootmybatisApplication - Starting SpingbootmybatisApplication on SEAN with PID 3044 (D:\Study\springboot\spingbootmybatis\target\classes started by Sean in D:\Study\springboot)
+2018-07-30 14:32:50,879 [main] INFO SpingbootmybatisApplication - No active profile set, falling back to default profiles: default
+2018-07-30 14:32:50,967 [main] INFO AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:32:50 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:32:51,184 [background-preinit] INFO Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-30 14:32:52,107 [main] INFO AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-30 14:32:52,717 [main] WARN CacheConfiguration - Cache: userCache has a maxElementsInMemory of 0. This might lead to performance degradation or OutOfMemoryError at Terracotta client.From Ehcache 2.0 onwards this has been changed to mean a store with no capacity limit. Set it to 1 if you want no elements cached in memory
+2018-07-30 14:32:53,040 [main] INFO TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-07-30 14:32:53,050 [main] INFO StandardService - Starting service [Tomcat]
+2018-07-30 14:32:53,051 [main] INFO StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-30 14:32:53,131 [localhost-startStop-1] INFO [/] - Initializing Spring embedded WebApplicationContext
+2018-07-30 14:32:53,132 [localhost-startStop-1] INFO ContextLoader - Root WebApplicationContext: initialization completed in 2165 ms
+2018-07-30 14:32:53,266 [localhost-startStop-1] INFO ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-30 14:32:53,270 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-30 14:32:53,271 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-30 14:32:53,271 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-30 14:32:53,271 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-30 14:32:53,890 [main] INFO RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:32:50 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:32:53,943 [main] INFO RequestMappingHandlerMapping - Mapped "{[/insertUser]}" onto public void com.voicecyber.controller.UserController.insertUser()
+2018-07-30 14:32:53,944 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getAllUser]}" onto public java.util.List<com.voicecyber.model.User> com.voicecyber.controller.UserController.getAllUser()
+2018-07-30 14:32:53,946 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getUser]}" onto public com.voicecyber.model.User com.voicecyber.controller.UserController.getUser(int)
+2018-07-30 14:32:53,948 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-30 14:32:53,949 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-30 14:32:53,981 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:32:53,981 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:32:54,016 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:32:54,348 [main] INFO AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-30 14:32:54,370 [main] INFO Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:32:54,384 [main] INFO Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:32:54,404 [main] INFO NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-30 14:32:54,423 [main] INFO TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-07-30 14:32:54,428 [main] INFO SpingbootmybatisApplication - Started SpingbootmybatisApplication in 3.814 seconds (JVM running for 4.324)
+2018-07-30 14:33:11,049 [http-nio-8080-exec-2] INFO [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-30 14:33:11,050 [http-nio-8080-exec-2] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-30 14:33:11,075 [http-nio-8080-exec-2] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-07-30 14:35:00,120 [main] INFO SpingbootmybatisApplication - Starting SpingbootmybatisApplication on SEAN with PID 14932 (D:\Study\springboot\spingbootmybatis\target\classes started by Sean in D:\Study\springboot)
+2018-07-30 14:35:00,123 [main] INFO SpingbootmybatisApplication - No active profile set, falling back to default profiles: default
+2018-07-30 14:35:00,188 [main] INFO AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:35:00 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:35:00,404 [background-preinit] INFO Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-30 14:35:01,055 [main] INFO AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-30 14:35:01,563 [main] WARN CacheConfiguration - Cache: userCache has a maxElementsInMemory of 0. This might lead to performance degradation or OutOfMemoryError at Terracotta client.From Ehcache 2.0 onwards this has been changed to mean a store with no capacity limit. Set it to 1 if you want no elements cached in memory
+2018-07-30 14:35:01,871 [main] INFO TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-07-30 14:35:01,882 [main] INFO StandardService - Starting service [Tomcat]
+2018-07-30 14:35:01,882 [main] INFO StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-07-30 14:35:01,964 [localhost-startStop-1] INFO [/] - Initializing Spring embedded WebApplicationContext
+2018-07-30 14:35:01,964 [localhost-startStop-1] INFO ContextLoader - Root WebApplicationContext: initialization completed in 1777 ms
+2018-07-30 14:35:02,098 [localhost-startStop-1] INFO ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-30 14:35:02,103 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-30 14:35:02,103 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-30 14:35:02,103 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-30 14:35:02,104 [localhost-startStop-1] INFO FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-30 14:35:02,703 [main] INFO RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@210ab13f: startup date [Mon Jul 30 14:35:00 GMT+08:00 2018]; root of context hierarchy
+2018-07-30 14:35:02,761 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getUser]}" onto public com.voicecyber.model.User com.voicecyber.controller.UserController.getUser(int)
+2018-07-30 14:35:02,763 [main] INFO RequestMappingHandlerMapping - Mapped "{[/insertUser]}" onto public void com.voicecyber.controller.UserController.insertUser()
+2018-07-30 14:35:02,763 [main] INFO RequestMappingHandlerMapping - Mapped "{[/getAllUser]}" onto public java.util.List<com.voicecyber.model.User> com.voicecyber.controller.UserController.getAllUser()
+2018-07-30 14:35:02,764 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-30 14:35:02,765 [main] INFO RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-30 14:35:02,794 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:35:02,794 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:35:02,828 [main] INFO SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-30 14:35:03,125 [main] INFO AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-07-30 14:35:03,137 [main] INFO Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:35:03,145 [main] INFO Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-30 14:35:03,158 [main] INFO NioSelectorPool - Using a shared selector for servlet write/read
+2018-07-30 14:35:03,173 [main] INFO TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-07-30 14:35:03,178 [main] INFO SpingbootmybatisApplication - Started SpingbootmybatisApplication in 3.281 seconds (JVM running for 3.824)
+2018-07-30 14:35:07,234 [http-nio-8080-exec-1] INFO [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-30 14:35:07,236 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-30 14:35:07,262 [http-nio-8080-exec-1] INFO DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
