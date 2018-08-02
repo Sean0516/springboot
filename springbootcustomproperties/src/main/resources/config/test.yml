@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: hello sesan2
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root,
+    password: 123sdsd456
+sean:
+  name: sean
+
+
