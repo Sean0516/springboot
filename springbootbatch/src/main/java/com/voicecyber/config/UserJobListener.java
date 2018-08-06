@@ -5,7 +5,7 @@ import org.springframework.batch.core.JobExecutionListener;
 
 /**
  * Created by Sean on 2018/8/6
- *
+ *joB 监视器 对job的状态以及异常的处理
  * @author Sean
  */
 public class UserJobListener implements JobExecutionListener {

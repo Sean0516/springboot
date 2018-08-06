@@ -3,11 +3,10 @@ package com.voicecyber.config;
 
 import com.voicecyber.model.User;
 import org.springframework.batch.item.validator.ValidatingItemProcessor;
-import org.springframework.batch.item.validator.Validator;
 
 /**
  * Created by Sean on 2018/8/6
- *
+ *对reader 读取的数据做处理
  * @author Sean
  */
 public class UserItemProcessor extends ValidatingItemProcessor<User> {
@@ -17,5 +16,4 @@ public class UserItemProcessor extends ValidatingItemProcessor<User> {
         user.setSex("男");
         return user;
     }
-
 }

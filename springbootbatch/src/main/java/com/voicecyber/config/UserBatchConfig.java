@@ -42,6 +42,12 @@ import javax.sql.DataSource;
 public class UserBatchConfig {
     @Autowired
     DataSource dataSource;
+
+    /**
+     * 读取数据的实现  ，可以自定义实现
+     * @return
+     * @throws Exception
+     */
     @Bean
     public ItemReader<User> reader( ) throws Exception {
         JdbcCursorItemReader<User> jdbcCursorItemReader=new JdbcCursorItemReader<>();
@@ -57,6 +63,11 @@ public class UserBatchConfig {
         jdbcCursorItemReader.close();
         return jdbcCursorItemReader;
     }
+
+    /**
+     *  用来处理数据的接口  获取Reader 的数据 。并输出 对应的结构给writer
+     * @return
+     */
     @Bean
     public ItemProcessor<User,User> processor(){
         UserItemProcessor userItemProcessor = new UserItemProcessor();
@@ -64,16 +75,28 @@ public class UserBatchConfig {
         return userItemProcessor ;
     }
 
+    /**
+     * 用来输出数据 ,将 processor 处理后的数据进行输出
+     * @return
+     */
     @Bean
     public ItemWriter<User> writer(){
+        //使用JDBC批处理的JdbcBatchItemWriter来写数据到数据库
         JdbcBatchItemWriter<User> itemWriter=new JdbcBatchItemWriter<>();
         itemWriter.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
         itemWriter.setDataSource(dataSource);
+        //在此设置要执行批处理的SQL语句
         String sql="insert into user_1"+" (name,age,sex) "+"values( :name, :age, :sex)";
         itemWriter.setSql(sql);
         return itemWriter;
     }
 
+    /**
+     * 用来注册Job 的容器
+     * @param transactionManager
+     * @return
+     * @throws Exception
+     */
     @Bean
     public JobRepository jobRepository(PlatformTransactionManager transactionManager) throws Exception {
         JobRepositoryFactoryBean jobRepositoryFactoryBean = new JobRepositoryFactoryBean();
@@ -82,30 +105,61 @@ public class UserBatchConfig {
         jobRepositoryFactoryBean.setDatabaseType(DatabaseType.MYSQL.name());
         return jobRepositoryFactoryBean.getObject();
     }
+
+    /**
+     * 用来启动job 的接口
+     * @param transactionManager
+     * @return
+     * @throws Exception
+     */
     @Bean
     public SimpleJobLauncher jobLauncher( PlatformTransactionManager transactionManager) throws Exception{
         SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
         jobLauncher.setJobRepository(this.jobRepository(transactionManager));
         return jobLauncher;
     }
+
+    /**
+     * job 监听接口
+     * @return
+     */
     @Bean
     public UserJobListener userJobListener(){
         return new UserJobListener();
     }
+
+    /**
+     *
+     * @param jobs
+     * @param step
+     * @return
+     */
     @Bean
     public Job importJob(JobBuilderFactory jobs, Step step){
         return jobs.get("importJob")
                 .incrementer(new RunIdIncrementer())
                 .flow(step)
                 .end()
+                //绑定对应的监听器
                 .listener(userJobListener())
                 .build();
     }
+
+    /**
+     * 实现任务的步骤
+     * @param stepBuilderFactory
+     * @param reader
+     * @param writer
+     * @param processor
+     * @return
+     */
     @Bean
     public Step userStep(StepBuilderFactory stepBuilderFactory,
                          ItemReader<User> reader, ItemWriter<User> writer, ItemProcessor<User,User> processor){
         return stepBuilderFactory.get("userStep")
+                //批处理每次提交的数据条数
                 .<User, User>chunk(5000)
+                //绑定 reader writer processor
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
