@@ -22,10 +22,16 @@ import javax.sql.DataSource;
  */
 @Configuration
 @MapperScan(basePackages = "com.voicecyber.mapper.school",sqlSessionTemplateRef = "schoolSqlSessionTemplate")
+/**
+ * MapperScan 扫描 Mapper 接口并容器管理，包路径精确到 能和另外一个数据源做区分 sqlSessionFactoryRef 表示定义了 key ，表示一个唯一 SqlSessionFactory 实例
+ */
 public class SchoolDataSourceConfig {
     @Bean(name = "schoolDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.school")
     @Primary
+    /**
+     * Primary 标志这个 Bean 如果在多个同类 Bean 候选时，该 Bean 优先被考虑。「多数据源配置的时候注意，必须要有一个主数据源，用 @Primary 标志该 BEan
+     */
     public DataSource schoolDataSource(){
         return DataSourceBuilder.create().build();
     }

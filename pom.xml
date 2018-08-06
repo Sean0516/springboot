@@ -23,6 +23,7 @@
 		<module>springbootehcacheredis</module>
 		<module>springbootmongodb</module>
 		<module>springbootredis</module>
+		<module>springbootsecurity</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
