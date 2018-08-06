@@ -24,6 +24,7 @@
 		<module>springbootmongodb</module>
 		<module>springbootredis</module>
 		<module>springbootsecurity</module>
+		<module>springbootbatch</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
