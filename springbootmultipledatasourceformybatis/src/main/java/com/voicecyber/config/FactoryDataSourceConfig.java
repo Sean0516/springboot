@@ -25,7 +25,7 @@ import java.io.IOException;
 public class FactoryDataSourceConfig {
     @Bean(name = "factoryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.factory")
-    public DataSource schoolDataSource() {
+    public DataSource factoryDataSource() {
         return DataSourceBuilder.create().build();
     }
 
