@@ -3,6 +3,7 @@ package com.sean.controller;
 import com.sean.SpringbootcustompropertiesApplication;
 import com.sean.config.ApplicationConfig;
 import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -18,6 +19,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.DataSource;
 
 
 /**
@@ -48,6 +50,10 @@ public class TestController {
         DefaultListableBeanFactory defaultListableBeanFactory= (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(PropertySourcesPlaceholderConfigurer.class);
         defaultListableBeanFactory.registerBeanDefinition("properties",beanDefinitionBuilder.getBeanDefinition());
+    }
+    @RequestMapping("editBean")
+    public void editBean(){
+
     }
 
 }

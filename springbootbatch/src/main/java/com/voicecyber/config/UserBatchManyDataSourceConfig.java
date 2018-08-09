@@ -51,6 +51,7 @@ public class UserBatchManyDataSourceConfig {
     public ItemReader<Student> reader(@Qualifier("schoolDataSource")DataSource dataSource) throws Exception {
         JdbcCursorItemReader<Student> jdbcCursorItemReader = new JdbcCursorItemReader<>();
         jdbcCursorItemReader.setDataSource(dataSource);
+
         jdbcCursorItemReader.setSql("select * from student");
         jdbcCursorItemReader.setRowMapper(new BeanPropertyRowMapper<>(Student.class));
         ExecutionContext executionContext = new ExecutionContext();
