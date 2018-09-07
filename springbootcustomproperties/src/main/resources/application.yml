@@ -15,13 +15,4 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      idle-timeout: 600000
-      maximum-pool-size: 5
-      minimum-idle: 1
-      connection-test-query: SELECT 'x' FROM DUAL
-      pool-name: mainsitePool
-      max-lifetime: 1800000
-      connection-timeout: 60000
 

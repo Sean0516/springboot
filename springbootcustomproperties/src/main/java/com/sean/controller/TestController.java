@@ -31,16 +31,14 @@ import javax.sql.DataSource;
 public class TestController {
     @Value("${spring.datasource.url}")
     private String url;
-    @Value("${sean.name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String name;
-    @Autowired
-    ApplicationContext applicationContext;
-
     @RequestMapping("test")
     public String test() {
         return url + name;
     }
-    @RequestMapping("deleteBean")
+
+/*    @RequestMapping("deleteBean")
     public void restart() {
         DefaultListableBeanFactory defaultListableBeanFactory= (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
         defaultListableBeanFactory.removeBeanDefinition("properties");
@@ -50,10 +48,6 @@ public class TestController {
         DefaultListableBeanFactory defaultListableBeanFactory= (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(PropertySourcesPlaceholderConfigurer.class);
         defaultListableBeanFactory.registerBeanDefinition("properties",beanDefinitionBuilder.getBeanDefinition());
-    }
-    @RequestMapping("editBean")
-    public void editBean(){
-
-    }
+    }*/
 
 }

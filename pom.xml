@@ -25,6 +25,7 @@
 		<module>springbootredis</module>
 		<module>springbootsecurity</module>
 		<module>springbootbatch</module>
+		<module>springbootforrabbitmq</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

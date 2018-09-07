@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.voicecyber.mapper.AgentMapper">
+  <resultMap id="BaseResultMap" type="com.voicecyber.model.Agent">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="AGENTID" jdbcType="VARCHAR" property="agentid" />
+    <result column="STAFF_NAME" jdbcType="VARCHAR" property="staffName" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="ORGANIZATION_ID" jdbcType="DECIMAL" property="organizationId" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="EFFECTIVE_TIME" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="EXPIRED_TIME" jdbcType="TIMESTAMP" property="expiredTime" />
+    <result column="LOGINCOUNT" jdbcType="DECIMAL" property="logincount" />
+    <result column="LASTLOGINTIME" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="FAILCOUNT" jdbcType="DECIMAL" property="failcount" />
+    <result column="LASTFAILTIME" jdbcType="TIMESTAMP" property="lastfailtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, AGENTID, STAFF_NAME, DESCRIPTION, ORGANIZATION_ID, PASSWORD, EFFECTIVE_TIME, 
+    EXPIRED_TIME, LOGINCOUNT, LASTLOGINTIME, FAILCOUNT, LASTFAILTIME
+  </sql>
+  <select id="selectByExample" parameterType="com.voicecyber.model.AgentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_agent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_agent
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_agent
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.voicecyber.model.AgentExample">
+    delete from t_agent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.voicecyber.model.Agent">
+    insert into t_agent (ID, AGENTID, STAFF_NAME, 
+      DESCRIPTION, ORGANIZATION_ID, PASSWORD, 
+      EFFECTIVE_TIME, EXPIRED_TIME, LOGINCOUNT, 
+      LASTLOGINTIME, FAILCOUNT, LASTFAILTIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{agentid,jdbcType=VARCHAR}, #{staffName,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{organizationId,jdbcType=DECIMAL}, #{password,jdbcType=VARCHAR}, 
+      #{effectiveTime,jdbcType=TIMESTAMP}, #{expiredTime,jdbcType=TIMESTAMP}, #{logincount,jdbcType=DECIMAL}, 
+      #{lastlogintime,jdbcType=TIMESTAMP}, #{failcount,jdbcType=DECIMAL}, #{lastfailtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.voicecyber.model.Agent">
+    insert into t_agent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="agentid != null">
+        AGENTID,
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="effectiveTime != null">
+        EFFECTIVE_TIME,
+      </if>
+      <if test="expiredTime != null">
+        EXPIRED_TIME,
+      </if>
+      <if test="logincount != null">
+        LOGINCOUNT,
+      </if>
+      <if test="lastlogintime != null">
+        LASTLOGINTIME,
+      </if>
+      <if test="failcount != null">
+        FAILCOUNT,
+      </if>
+      <if test="lastfailtime != null">
+        LASTFAILTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="agentid != null">
+        #{agentid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        #{organizationId,jdbcType=DECIMAL},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveTime != null">
+        #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiredTime != null">
+        #{expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logincount != null">
+        #{logincount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastlogintime != null">
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failcount != null">
+        #{failcount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastfailtime != null">
+        #{lastfailtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.voicecyber.model.AgentExample" resultType="java.lang.Long">
+    select count(*) from t_agent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_agent
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.agentid != null">
+        AGENTID = #{record.agentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.staffName != null">
+        STAFF_NAME = #{record.staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationId != null">
+        ORGANIZATION_ID = #{record.organizationId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.effectiveTime != null">
+        EFFECTIVE_TIME = #{record.effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expiredTime != null">
+        EXPIRED_TIME = #{record.expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logincount != null">
+        LOGINCOUNT = #{record.logincount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lastlogintime != null">
+        LASTLOGINTIME = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.failcount != null">
+        FAILCOUNT = #{record.failcount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lastfailtime != null">
+        LASTFAILTIME = #{record.lastfailtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_agent
+    set ID = #{record.id,jdbcType=DECIMAL},
+      AGENTID = #{record.agentid,jdbcType=VARCHAR},
+      STAFF_NAME = #{record.staffName,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{record.organizationId,jdbcType=DECIMAL},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      EFFECTIVE_TIME = #{record.effectiveTime,jdbcType=TIMESTAMP},
+      EXPIRED_TIME = #{record.expiredTime,jdbcType=TIMESTAMP},
+      LOGINCOUNT = #{record.logincount,jdbcType=DECIMAL},
+      LASTLOGINTIME = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      FAILCOUNT = #{record.failcount,jdbcType=DECIMAL},
+      LASTFAILTIME = #{record.lastfailtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.voicecyber.model.Agent">
+    update t_agent
+    <set>
+      <if test="agentid != null">
+        AGENTID = #{agentid,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationId != null">
+        ORGANIZATION_ID = #{organizationId,jdbcType=DECIMAL},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveTime != null">
+        EFFECTIVE_TIME = #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiredTime != null">
+        EXPIRED_TIME = #{expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logincount != null">
+        LOGINCOUNT = #{logincount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastlogintime != null">
+        LASTLOGINTIME = #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="failcount != null">
+        FAILCOUNT = #{failcount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastfailtime != null">
+        LASTFAILTIME = #{lastfailtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.voicecyber.model.Agent">
+    update t_agent
+    set AGENTID = #{agentid,jdbcType=VARCHAR},
+      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      ORGANIZATION_ID = #{organizationId,jdbcType=DECIMAL},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      EFFECTIVE_TIME = #{effectiveTime,jdbcType=TIMESTAMP},
+      EXPIRED_TIME = #{expiredTime,jdbcType=TIMESTAMP},
+      LOGINCOUNT = #{logincount,jdbcType=DECIMAL},
+      LASTLOGINTIME = #{lastlogintime,jdbcType=TIMESTAMP},
+      FAILCOUNT = #{failcount,jdbcType=DECIMAL},
+      LASTFAILTIME = #{lastfailtime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

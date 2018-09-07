@@ -19,7 +19,7 @@
         <!--password="${jdbc.password}">-->
         <!--</jdbcConnection>-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/test"
+                        connectionURL="jdbc:mysql://localhost:3306/vclog10"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -53,7 +53,7 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <table tableName="User" domainObjectName="User"></table>
+        <table tableName="T_AGENT" domainObjectName="Agent"></table>
 
 
     </context>
