@@ -28,6 +28,7 @@
 		<module>springbootforrabbitmq</module>
 		<module>springbootaop</module>
 		<module>springbootjdbctemplate</module>
+		<module>springbootrestserver</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
