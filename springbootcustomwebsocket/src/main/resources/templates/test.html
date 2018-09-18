@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
-
-
-
+<button id="test" onclick="sendMsg()" >submit</button>
+    <script th:src="@{/jquery.js}" ></script>
     <script type="text/javascript">
+
         var  webSocket;
         webSocket=new WebSocket("ws://localhost:8080/test1");
         webSocket.onopen=function (p1) {
             console.log("打开socket")
-
         };
         webSocket.onmessage=function (p1) {
             console.log("server msg" +p1.data)
+        }
+        webSocket.onclose=function () {
+            console.log(" web socket close_____")
+        }
 
+        webSocket.onerror=function (p1) {
+            console.error("web socket error " + p1.data)
+        }
+        function sendMsg() {
+            console.log("send msg")
+            webSocket.send("hello server")
         }
 
 
