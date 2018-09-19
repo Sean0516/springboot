@@ -6,6 +6,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
+import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,17 +28,21 @@ public class UserController {
         return "ws";
     }
 
-    @MessageMapping("test")
-    @SendTo("/topic/userInfo")
+    @MessageMapping("/test")
     public String userInfo() {
         System.out.println("sss");
         return "test11112";
     }
-
-    @Scheduled(fixedRate = 1000*2)
-    @SendTo("/topic/subscribeTest")
-    public void subscribeTest() {
-        messagingTemplate.convertAndSend("/topic/subscribeTest", LocalDateTime.now().toString());
+    @MessageMapping("/user")
+    public String userName(){
+        return "hello sean";
     }
+
+
+//    @Scheduled(initialDelay=1000 ,fixedDelay = 1000*10)
+//    public void subscribeTest() {
+//        System.out.println("发送消息给客户端");
+//        messagingTemplate.convertAndSend("/topic/subscribeTest", LocalDateTime.now().toString());
+//    }
 
 }

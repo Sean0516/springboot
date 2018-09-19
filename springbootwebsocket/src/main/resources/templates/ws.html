@@ -27,7 +27,7 @@
         var socket = new SockJS('/endpointWisely');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            stompClient.subscribe('/topic/subscribeTest', function (response) {
+            stompClient.subscribe('/topic/user', function (response) {
                 console.log("topic/subscribe"+response.body)
             })
         });
@@ -39,7 +39,7 @@
         console.log('Disconnected');
     }
     function sendName() {
-        stompClient.send("/test");
+        stompClient.send("/app/user");
     }
 </script>
 </body>
