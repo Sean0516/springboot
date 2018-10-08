@@ -1,6 +1,5 @@
-package com.sean.config.model;
+package com.sean.model;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
 import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 
