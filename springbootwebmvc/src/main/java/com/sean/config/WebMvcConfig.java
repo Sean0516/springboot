@@ -34,7 +34,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CustomInterceptor()).addPathPatterns("/test/**");
+        registry.addInterceptor(new CustomInterceptor()).addPathPatterns("/test1/**").addPathPatterns("/test2/**");
         super.addInterceptors(registry);
     }
 

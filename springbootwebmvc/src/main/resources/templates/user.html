@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add User</title>
+</head>
+<body>
+<h2>Add User</h2>
+
+<!--<ul th:if="${#fields.hasErrors()}" >-->
+    <!--<li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input-->
+        <!--is incorrect</li>-->
+<!--</ul>-->
+
+<form th:action="@{/user/add}" method="post">
+    <label>Name: </label> <input name="name" type="text"/>
+    </div>
+    <div>
+        <label>Age: </label>
+        <input name="age" type="text"/>
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+</body>
+</html>

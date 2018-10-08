@@ -1,0 +1,14 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>this is error   page  </h2>
+<p class="title"> code is : <span  th:text="${status}"></span> </p>
+<div th:text="${#dates.format(timestamp,'yyyy-MM-dd HH:mm:ss')}"></div>
+<div th:text="${message}"></div>
+<div th:text="${error}"></div>
+</body>
+</html>

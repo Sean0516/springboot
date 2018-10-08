@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "test1")
 public class TestController {
     @RequestMapping(value = "hello")
-    public String sayHello(){
+    public String sayHello() {
+        if (1 == 1) {
+            throw new RuntimeException("server error");
+        }
         return "hello sean";
     }
+
     @RequestMapping("test/{name}")
-    public String test(@PathVariable(value = "name")String name){
-        return "hello " +name;
+    public String test(@PathVariable(value = "name") String name) {
+        return "hello " + name;
     }
 
 }
