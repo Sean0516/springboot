@@ -30,6 +30,7 @@
 		<module>springbootjdbctemplate</module>
 		<module>springbootrestserver</module>
 		<module>springbootforkafka</module>
+		<module>springbootrestswagger</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
