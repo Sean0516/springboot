@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api")
 public class RestApiController {
     /**
-     *
+     *需要注意的是  必须指定 RequestMethod  的具体类型，不然前端会显示多种类型的Rest
      */
     @ApiOperation(value = "信息总览", notes = "用户信息总览")
     @ApiImplicitParam(name = "type", value = "获取信息的类型（name ,sex）", paramType = "query", dataType = "string")
