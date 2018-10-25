@@ -1,10 +1,8 @@
 package com.voicecyber.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -24,14 +22,23 @@ public class AdviceAspect {
     }
     @Before("advice()")
     public void beforeAdvice(JoinPoint joinPoint){
-        System.out.println(joinPoint.getSignature().getName());
+        String name = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
-        LOGGER.info(args.toString());
+        LOGGER.info("method name:"+name);
+        LOGGER.info("参数："+args.toString());
         LOGGER.info("before enter controller");
     }
     @AfterReturning(pointcut = "advice()" ,returning = "obj")
     public void afterAdvice(Object obj){
         LOGGER.info("controller return msg" + obj);
+    }
+    @AfterThrowing(pointcut = "advice()",throwing = "t")
+    public void afterThrowing(JoinPoint joinPoint,Throwable t){
+        Signature signature = joinPoint.getSignature();
+        Object[] args = joinPoint.getArgs();
+        LOGGER.info("method name:"+signature.getName());
+        LOGGER.info("参数："+args.toString());
+        LOGGER.error("error message:"+t.getMessage());
     }
 
 }

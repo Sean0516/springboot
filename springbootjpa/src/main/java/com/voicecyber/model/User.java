@@ -1,10 +1,9 @@
 package com.voicecyber.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.Tables;
+
+import javax.persistence.*;
 
 /**
  * Created by Sean on 2018/9/12
@@ -12,6 +11,7 @@ import javax.persistence.Id;
  * @author Sean
  */
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue

@@ -21,5 +21,4 @@ public class YmlFileConfig {
         propertySourcesPlaceholderConfigurer.setProperties(yaml.getObject());
         return propertySourcesPlaceholderConfigurer;
     }
-
 }

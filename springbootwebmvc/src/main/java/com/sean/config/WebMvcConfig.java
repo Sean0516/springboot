@@ -40,15 +40,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 视图控制器
+     *
      * @param registry
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("viewUser").setViewName("user/viewUser");
         super.addViewControllers(registry);
     }
 
     /**
      * 路径匹配设置
+     * 在springmvc 中，如果访问路径带有“.” ，则后面的值会被忽略。如果不想忽略的话，可以重写 configurepathmath来来实现
      * @param configurer
      */
     @Override

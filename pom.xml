@@ -31,6 +31,7 @@
 		<module>springbootrestserver</module>
 		<module>springbootforkafka</module>
 		<module>springbootrestswagger</module>
+		<module>springbootcustomerevent</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

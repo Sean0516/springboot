@@ -28,6 +28,7 @@ public class UserController {
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult);
         }
+        System.out.println(user.toString());
         return "add user success";
     }
 }

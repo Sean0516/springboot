@@ -41,4 +41,13 @@ public class UserPropertiesConfig {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "UserPropertiesConfig{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

@@ -19,26 +19,31 @@ import java.util.Map;
 public class AdviceController {
     @Autowired
     private RestTemplate restTemplate;
+
     @RequestMapping("test")
-    public String test(String name){
-        return "hello" +name;
+    public String test(String name) {
+        if ("sean".equals(name)) {
+            throw new RuntimeException("test error");
+        }
+        return "hello" + name;
     }
 
     @RequestMapping(value = "name")
-    public String name(int age,String... name ){
+    public String name(int age, String... name) {
         for (String s : name) {
             System.out.println(s);
         }
-        return "getName"  +age;
+        return "getName" + age;
     }
+
     @RequestMapping(value = "restTest")
-    public ResponseEntity restTest(){
+    public ResponseEntity restTest() {
 //        ResponseEntity<String> responseEntity  = restTemplate.getForEntity("http://localhost:8080/name?name={name}", String.class,"name,test,master" );
-        Map map=new HashMap(2);
-        map.put("name","name,test,master");
-        map.put("age",22);
-        ResponseEntity<String> responseEntity=restTemplate.exchange("http://localhost:8080/name?name={name}&age={age}", HttpMethod.GET,null,String.class,map);
-        return  responseEntity;
+        Map map = new HashMap(2);
+        map.put("name", "name,test,master");
+        map.put("age", 22);
+        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8080/name?name={name}&age={age}", HttpMethod.GET, null, String.class, map);
+        return responseEntity;
 
     }
 }

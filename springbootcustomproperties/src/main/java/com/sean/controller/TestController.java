@@ -2,6 +2,7 @@ package com.sean.controller;
 
 import com.sean.SpringbootcustompropertiesApplication;
 import com.sean.config.ApplicationConfig;
+import com.sean.config.UserPropertiesConfig;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebAppl
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -33,9 +35,24 @@ public class TestController {
     private String url;
     @Value("${spring.datasource.driver-class-name}")
     private String name;
+
+    @Autowired
+    private ApplicationContext applicationContext;
+    @Autowired
+    private UserPropertiesConfig userPropertiesConfig;
+
     @RequestMapping("test")
     public String test() {
         return url + name;
+    }
+    @RequestMapping("getValue")
+    public String getValue(){
+        String property = applicationContext.getEnvironment().getProperty("user.name");
+        return property;
+    }
+    @RequestMapping("getUser")
+    public void getUser(){
+        System.out.println(userPropertiesConfig.toString());
     }
 
 /*    @RequestMapping("deleteBean")
@@ -49,5 +66,8 @@ public class TestController {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(PropertySourcesPlaceholderConfigurer.class);
         defaultListableBeanFactory.registerBeanDefinition("properties",beanDefinitionBuilder.getBeanDefinition());
     }*/
+
+
+
 
 }
