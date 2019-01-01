@@ -7,5 +7,12 @@
 <body>
 <h2> 人物图片显示</h2>
 <img th:src="@{/person/personInfo}" width="200" height="200">
+<button type="button" onclick="submit()">submit</button>
+<script>
+
+   function submit() {
+       window.open('personInfo')
+   }
+</script>
 </body>
 </html>

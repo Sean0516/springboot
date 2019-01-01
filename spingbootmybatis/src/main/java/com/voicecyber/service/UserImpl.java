@@ -51,6 +51,7 @@ public class UserImpl implements IUser {
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
+    @CachePut
     public void insertUser(User user) {
         userMapper.insertSelective(user);
     }
